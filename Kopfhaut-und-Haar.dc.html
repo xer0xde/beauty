@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="vendor/react.js"></script>
+<script src="vendor/react-dom.js"></script>
+<script src="support.js"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Display: Cormorant Garamond (300/400/500) - fallback EB Garamond, Georgia.
+   Text & UI: Jost (300/400/500) - fallback Century Gothic, Futura.
+   Both families are served from Google Fonts; no licensed binaries were supplied. */
+</style>
+<style>:root{
+/* --- Base palette (taken from the key visual) --- */
+--c-espresso:#3A1A0B;
+--c-kakao:#5E4029;
+--c-taupe:#7E6A5C;
+--c-gold:#B98A4C;
+--c-gold-deep:#8F6733;
+--c-gold-soft:#EBD9BC;
+--c-creme:#FDF7F1;
+--c-sand:#F7EADE;
+--c-rose:#EFDACD;
+--c-white:#FFFFFF;
+--c-line:#E9DACB;
+--c-success:#5D7355;
+--c-error:#A24B3C;
+
+/* --- Semantic: text --- */
+--text-strong:var(--c-espresso);
+--text-body:var(--c-kakao);
+--text-meta:var(--c-taupe);
+--text-link:var(--c-gold-deep);
+--text-on-dark:var(--c-creme);
+--text-success:var(--c-success);
+--text-error:var(--c-error);
+
+/* --- Semantic: surfaces --- */
+--surface-page:var(--c-creme);
+--surface-alt:var(--c-sand);
+--surface-warm:var(--c-rose);
+--surface-card:var(--c-white);
+--surface-field:var(--c-white);
+--surface-inverse:var(--c-espresso);
+--surface-badge:var(--c-gold-soft);
+
+/* --- Semantic: lines & ornament --- */
+--line-hairline:var(--c-line);
+--line-strong:var(--c-espresso);
+--ornament:var(--c-gold);
+--focus-ring:var(--c-gold-deep);
+}
+</style>
+<style>:root{
+--font-display:"Cormorant Garamond","EB Garamond",Georgia,serif;
+--font-ui:"Jost","Century Gothic",Futura,sans-serif;
+
+--fw-light:300; /* @kind font */
+--fw-regular:400; /* @kind font */
+--fw-medium:500; /* @kind font */
+
+/* Desktop scale */
+--size-display:72px;   --lh-display:1.02; /* @kind font */
+--size-h1:52px;        --lh-h1:1.08; /* @kind font */
+--size-h2:38px;        --lh-h2:1.15; /* @kind font */
+--size-h3:26px;        --lh-h3:1.25; /* @kind font */
+--size-lead:20px;      --lh-lead:1.6; /* @kind font */
+--size-body:17px;      --lh-body:1.7; /* @kind font */
+--size-small:15px;     --lh-small:1.6; /* @kind font */
+--size-eyebrow:11px;   --ls-eyebrow:0.22em; /* @kind font */
+--size-price:24px;
+--ls-button:0.08em; /* @kind font */
+
+--measure-text:68ch; /* @kind spacing */
+}
+@media (max-width:1023px){:root{
+--size-display:52px;--lh-display:1.08; /* @kind font */
+--size-h1:38px;--lh-h1:1.15; /* @kind font */
+--size-h2:26px;--lh-h2:1.25; /* @kind font */
+--size-h3:20px;--lh-h3:1.35; /* @kind font */
+--size-lead:17px;
+--size-body:16px;
+--size-small:14px;
+}}
+</style>
+<style>:root{
+--space-1:4px;--space-2:8px;--space-3:16px;--space-4:24px;--space-5:32px;
+--space-6:48px;--space-7:72px;--space-8:120px;--space-9:160px;
+
+--container-max:1240px;
+--measure-max:680px;
+--grid-columns:12; /* @kind other */
+--grid-gutter:24px;
+
+--section-desktop:120px;
+--section-tablet:96px;
+--section-mobile:72px;
+
+--edge-desktop:40px;
+--edge-tablet:40px;
+--edge-mobile:20px;
+
+--touch-min:44px;
+}
+</style>
+<style>:root{
+--radius-base:2px;
+--radius-button:4px;
+--radius-full:999px;
+--radius-media:0px;
+
+--border-hairline:1px solid var(--line-hairline);
+--border-strong:1px solid var(--c-espresso);
+
+--shadow-hover:0 6px 20px rgba(58,26,11,0.07);
+--shadow-overlay:0 18px 48px rgba(58,26,11,0.12);
+
+--icon-size:24px;
+--icon-stroke:1.25; /* @kind other */
+}
+</style>
+<style>:root{
+--duration-fast:150ms; /* @kind other */
+--duration-base:220ms; /* @kind other */
+--duration-slow:420ms; /* @kind other */
+--ease-standard:cubic-bezier(0.22,0.61,0.36,1); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{--duration-fast:0ms; /* @kind other */
+--duration-base:0ms; /* @kind other */
+--duration-slow:0ms /* @kind other */}}
+</style>
+<style>*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-ui);font-weight:var(--fw-light);font-size:var(--size-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-strong);font-weight:var(--fw-light);margin:0}
+h1{font-size:var(--size-h1);line-height:var(--lh-h1)}
+h2{font-size:var(--size-h2);line-height:var(--lh-h2)}
+h3{font-size:var(--size-h3);line-height:var(--lh-h3);font-weight:var(--fw-regular)}
+p{margin:0}
+a{color:var(--text-link);text-decoration:none;border-bottom:1px solid var(--text-link);transition:color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard)}
+a:hover{color:var(--c-espresso);border-color:var(--c-espresso)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+::selection{background:var(--c-gold-soft);color:var(--c-espresso)}
+</style>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400-italic-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-600-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jost-500-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Display: Cormorant Garamond (300/400/500) - fallback EB Garamond, Georgia.
+   Text & UI: Jost (300/400/500) - fallback Century Gothic, Futura.
+   Both families are served from Google Fonts; no licensed binaries were supplied. */
+
+:root{
+/* --- Base palette (taken from the key visual) --- */
+--c-espresso:#3A1A0B;
+--c-kakao:#5E4029;
+--c-taupe:#7E6A5C;
+--c-gold:#B98A4C;
+--c-gold-deep:#8F6733;
+--c-gold-soft:#EBD9BC;
+--c-creme:#FDF7F1;
+--c-sand:#F7EADE;
+--c-rose:#EFDACD;
+--c-white:#FFFFFF;
+--c-line:#E9DACB;
+--c-success:#5D7355;
+--c-error:#A24B3C;
+
+/* --- Semantic: text --- */
+--text-strong:var(--c-espresso);
+--text-body:var(--c-kakao);
+--text-meta:var(--c-taupe);
+--text-link:var(--c-gold-deep);
+--text-on-dark:var(--c-creme);
+--text-success:var(--c-success);
+--text-error:var(--c-error);
+
+/* --- Semantic: surfaces --- */
+--surface-page:var(--c-creme);
+--surface-alt:var(--c-sand);
+--surface-warm:var(--c-rose);
+--surface-card:var(--c-white);
+--surface-field:var(--c-white);
+--surface-inverse:var(--c-espresso);
+--surface-badge:var(--c-gold-soft);
+
+/* --- Semantic: lines & ornament --- */
+--line-hairline:var(--c-line);
+--line-strong:var(--c-espresso);
+--ornament:var(--c-gold);
+--focus-ring:var(--c-gold-deep);
+}
+
+:root{
+--font-display:"Cormorant Garamond","EB Garamond",Georgia,serif;
+--font-ui:"Jost","Century Gothic",Futura,sans-serif;
+
+--fw-light:300; /* @kind font */
+--fw-regular:400; /* @kind font */
+--fw-medium:500; /* @kind font */
+
+/* Desktop scale */
+--size-display:72px;   --lh-display:1.02; /* @kind font */
+--size-h1:52px;        --lh-h1:1.08; /* @kind font */
+--size-h2:38px;        --lh-h2:1.15; /* @kind font */
+--size-h3:26px;        --lh-h3:1.25; /* @kind font */
+--size-lead:20px;      --lh-lead:1.6; /* @kind font */
+--size-body:17px;      --lh-body:1.7; /* @kind font */
+--size-small:15px;     --lh-small:1.6; /* @kind font */
+--size-eyebrow:11px;   --ls-eyebrow:0.22em; /* @kind font */
+--size-price:24px;
+--ls-button:0.08em; /* @kind font */
+
+--measure-text:68ch; /* @kind spacing */
+}
+@media (max-width:1023px){:root{
+--size-display:52px;--lh-display:1.08; /* @kind font */
+--size-h1:38px;--lh-h1:1.15; /* @kind font */
+--size-h2:26px;--lh-h2:1.25; /* @kind font */
+--size-h3:20px;--lh-h3:1.35; /* @kind font */
+--size-lead:17px;
+--size-body:16px;
+--size-small:14px;
+}}
+
+:root{
+--space-1:4px;--space-2:8px;--space-3:16px;--space-4:24px;--space-5:32px;
+--space-6:48px;--space-7:72px;--space-8:120px;--space-9:160px;
+
+--container-max:1240px;
+--measure-max:680px;
+--grid-columns:12; /* @kind other */
+--grid-gutter:24px;
+
+--section-desktop:120px;
+--section-tablet:96px;
+--section-mobile:72px;
+
+--edge-desktop:40px;
+--edge-tablet:40px;
+--edge-mobile:20px;
+
+--touch-min:44px;
+}
+
+:root{
+--radius-base:2px;
+--radius-button:4px;
+--radius-full:999px;
+--radius-media:0px;
+
+--border-hairline:1px solid var(--line-hairline);
+--border-strong:1px solid var(--c-espresso);
+
+--shadow-hover:0 6px 20px rgba(58,26,11,0.07);
+--shadow-overlay:0 18px 48px rgba(58,26,11,0.12);
+
+--icon-size:24px;
+--icon-stroke:1.25; /* @kind other */
+}
+
+:root{
+--duration-fast:150ms; /* @kind other */
+--duration-base:220ms; /* @kind other */
+--duration-slow:420ms; /* @kind other */
+--ease-standard:cubic-bezier(0.22,0.61,0.36,1); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{--duration-fast:0ms; /* @kind other */
+--duration-base:0ms; /* @kind other */
+--duration-slow:0ms /* @kind other */}}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-ui);font-weight:var(--fw-light);font-size:var(--size-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-strong);font-weight:var(--fw-light);margin:0}
+h1{font-size:var(--size-h1);line-height:var(--lh-h1)}
+h2{font-size:var(--size-h2);line-height:var(--lh-h2)}
+h3{font-size:var(--size-h3);line-height:var(--lh-h3);font-weight:var(--fw-regular)}
+p{margin:0}
+a{color:var(--text-link);text-decoration:none;border-bottom:1px solid var(--text-link);transition:color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard)}
+a:hover{color:var(--c-espresso);border-color:var(--c-espresso)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+::selection{background:var(--c-gold-soft);color:var(--c-espresso)}
+
+</style>
+<script src="design-system.js"></script>
+<style>/* latin-ext */
+@font-face {
+  font-family: 'Parisienne';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/parisienne-400-normal-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Parisienne';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/parisienne-400-normal-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<script src="vendor/lucide.js"></script>
+<script src="image-slot.js"></script>
+<style>
+html,body{margin:0}
+a{color:var(--text-link);border-bottom:none}
+a:hover{color:var(--c-espresso)}
+p a{border-bottom:1px solid var(--text-link)}
+@keyframes bpVeil{0%{opacity:1}88%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes bpPanelUp{0%{transform:translateY(0)}74%{transform:translateY(0)}100%{transform:translateY(-101%)}}
+@keyframes bpPanelDown{0%{transform:translateY(0)}74%{transform:translateY(0)}100%{transform:translateY(101%)}}
+@keyframes bpMarkIn{0%{opacity:0;transform:scale(0.94)}100%{opacity:1;transform:scale(1)}}
+@keyframes bpRule{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes bpWordIn{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes bpFadeOut{0%{opacity:1}100%{opacity:0}}
+
+@keyframes bpWipeIn{0%{transform:translateY(101%)}100%{transform:translateY(0)}}
+@keyframes bpWipeOut{0%{transform:translateY(0)}100%{transform:translateY(-101%)}}
+@keyframes bpPageIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes bpPageOut{0%{opacity:1;transform:translateY(0)}100%{opacity:0.6;transform:translateY(-10px)}}
+@keyframes bpMarkPop{0%{opacity:0;transform:scale(0.9)}100%{opacity:1;transform:scale(1)}}
+[data-bp-curtain-edge]{position:absolute;left:0;right:0;top:0;height:1px;background:var(--c-gold)}
+html.bp-leaving [data-bp-curtain]{visibility:visible}
+html.bp-leaving [data-bp-curtain-top]{animation:bpWipeIn 460ms cubic-bezier(0.65,0,0.2,1) forwards}
+html.bp-leaving [data-bp-curtain-mark]{animation:bpMarkPop 300ms cubic-bezier(0.22,0.61,0.36,1) 240ms both}
+html.bp-leaving [data-bp-page]{animation:bpPageOut 460ms cubic-bezier(0.65,0,0.2,1) both}
+html.bp-arrive [data-bp-curtain]{visibility:visible}
+html.bp-arrive [data-bp-curtain-top]{transform:translateY(0);animation:bpWipeOut 620ms cubic-bezier(0.22,0.61,0.36,1) 120ms forwards}
+html.bp-arrive [data-bp-curtain-mark]{opacity:1;animation:bpMarkPop 260ms linear reverse both}
+html.bp-arrive [data-bp-page]{animation:bpPageIn 560ms cubic-bezier(0.22,0.61,0.36,1) 300ms both}
+@media (prefers-reduced-motion:reduce){
+  [data-bp-curtain]{display:none!important}
+  [data-bp-page]{animation:none!important}
+}
+@keyframes bpTileIn{0%{opacity:0;transform:scale(0.82)}100%{opacity:1;transform:scale(1)}}
+[data-bp-tile]{opacity:0;animation:bpTileIn 620ms cubic-bezier(0.22,0.61,0.36,1) forwards}
+@media (max-width:900px){
+  [data-bp-sticky]{position:static!important;height:auto!important;transform:none!important;padding:0 0 48px}
+  [data-bp-band]{padding-bottom:96px!important}
+  [data-bp-tail]{display:none}
+  [data-bp-scroll-cards]{padding-top:0!important;grid-template-columns:minmax(0,1fr)!important}
+  [data-bp-scroll-cards] > div{grid-column:1!important;margin-top:0!important}
+}
+@media (max-width:900px){
+  [data-bp-hero-grid]{grid-template-columns:minmax(0,1fr)!important}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-bp-tile]{opacity:1!important;animation:none!important;transform:none!important}
+}
+[data-bp-nav-link]{position:relative;transition:color 150ms cubic-bezier(0.22,0.61,0.36,1)}
+[data-bp-nav-link]::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--c-gold-deep);transform:scaleX(0);transform-origin:left center;transition:transform 240ms cubic-bezier(0.22,0.61,0.36,1)}
+[data-bp-nav-link]:hover::after{transform:scaleX(1)}
+[data-bp-nav-link]:hover{color:var(--c-espresso)}
+[data-bp-cta] svg{transition:transform 240ms cubic-bezier(0.22,0.61,0.36,1)}
+[data-bp-cta]:hover svg{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){
+  [data-bp-nav-link]::after,[data-bp-cta] svg{transition:none}
+}
+@keyframes bpHeroIn{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes bpWrite{0%{clip-path:inset(0 100% -20% 0)}100%{clip-path:inset(0 -8% -20% 0)}}
+@keyframes bpNib{0%{left:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes bpGlow{0%{opacity:0;transform:scale(0.6)}45%{opacity:0.55}100%{opacity:0;transform:scale(1.9)}}
+@keyframes bpSweep{0%{transform:translateX(-140%) skewX(-12deg);opacity:0}30%{opacity:0.75}100%{transform:translateX(140%) skewX(-12deg);opacity:0}}
+@keyframes bpWordUp{0%{opacity:0;transform:translateY(22px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes bpReveal{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:translateY(0)}}
+html.bp-js [data-bp-reveal]{opacity:0}
+html.bp-js [data-bp-reveal].bp-in{animation:bpReveal 760ms cubic-bezier(0.22,0.61,0.36,1) forwards}
+@keyframes bpFloatIn{0%{opacity:0;transform:translateY(32px) scale(0.94)}100%{opacity:1;transform:translateY(0) scale(1)}}
+html.bp-js [data-bp-reveal] [data-bp-float]{opacity:0}
+html.bp-js [data-bp-reveal].bp-in [data-bp-float]{animation:bpFloatIn 900ms cubic-bezier(0.22,0.61,0.36,1) forwards}
+.bp-in [data-bp-float]:nth-of-type(1){animation-delay:120ms}
+.bp-in [data-bp-float]:nth-of-type(2){animation-delay:260ms}
+.bp-in [data-bp-float]:nth-of-type(3){animation-delay:400ms}
+.bp-in [data-bp-float]:nth-of-type(4){animation-delay:540ms}
+
+@media (max-width:1180px){
+  [data-bp-nav-link]{font-size:14px}
+}
+@media (max-width:980px){
+  [data-bp-cta-label]{font-size:0}
+  [data-bp-cta-label]::after{content:"Termin";font-size:var(--size-small)}
+}
+@media (max-width:820px){
+  [data-bp-nav]{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-bp-intro]{display:none!important}
+  [data-bp-hero-in]{animation:none!important;opacity:1!important;transform:none!important}
+  html.bp-js [data-bp-reveal]{opacity:1!important;animation:none!important;transform:none!important}
+  [data-bp-float]{opacity:1!important;animation:none!important;transform:none!important}
+}
+</style>
+</helmet>
+<div data-bp-page="true" style="background:var(--surface-page);min-height:100vh">
+<div data-bp-curtain="true" style="position:fixed;inset:0;z-index:300;pointer-events:none;visibility:hidden">
+<div data-bp-curtain-top="true" style="position:absolute;inset:0;background:var(--c-creme);transform:translateY(101%);display:grid;place-items:center">
+<span data-bp-curtain-edge="true"></span>
+<img data-bp-curtain-mark="true" src="images/beauty-palast-albstadt.png" alt="" style="height:72px;width:auto;display:block;opacity:0">
+</div>
+</div>
+
+
+<sc-if value="{{ introVisible }}" hint-placeholder-val="{{ true }}">
+<div data-bp-intro="true" style="position:fixed;inset:0;z-index:200;pointer-events:none;animation:bpVeil 3900ms cubic-bezier(0.22,0.61,0.36,1) forwards">
+<div style="position:absolute;left:0;right:0;top:0;height:50%;background:var(--c-creme);animation:bpPanelUp 3900ms cubic-bezier(0.22,0.61,0.36,1) forwards"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:50%;background:var(--c-creme);animation:bpPanelDown 3900ms cubic-bezier(0.22,0.61,0.36,1) forwards"></div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation:bpFadeOut 480ms cubic-bezier(0.22,0.61,0.36,1) 2450ms forwards">
+<div style="position:relative;display:flex;align-items:center;justify-content:center">
+<span style="position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid var(--c-gold);opacity:0;animation:bpGlow 1500ms cubic-bezier(0.22,0.61,0.36,1) 240ms forwards"></span>
+<span style="position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid var(--c-gold);opacity:0;animation:bpGlow 1500ms cubic-bezier(0.22,0.61,0.36,1) 620ms forwards"></span>
+<img src="images/beauty-palast-albstadt.png" alt="" style="height:104px;width:auto;display:block;opacity:0;animation:bpMarkIn 760ms cubic-bezier(0.22,0.61,0.36,1) 120ms forwards">
+</div>
+<span style="display:block;width:220px;height:1px;background:var(--c-gold);transform-origin:center;transform:scaleX(0);animation:bpRule 760ms cubic-bezier(0.22,0.61,0.36,1) 680ms forwards"></span>
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center">
+<span style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(28px,3.4vw,52px);line-height:1.15;color:var(--text-strong);opacity:0;animation:bpWordUp 680ms cubic-bezier(0.22,0.61,0.36,1) 900ms forwards">Schönheit, die bleibt.</span>
+<span style="position:relative;display:inline-block;overflow:visible">
+<span style="position:relative;display:inline-block;clip-path:inset(0 100% -20% 0);animation:bpWrite 1150ms cubic-bezier(0.32,0.72,0.3,1) 1400ms forwards;font-family:'Parisienne',cursive;font-size:clamp(46px,5.6vw,86px);line-height:1.05;color:var(--c-gold-deep);padding:0 6px">Vertrauen</span>
+<span style="position:absolute;top:18%;left:0;width:2px;height:64%;background:var(--c-gold);opacity:0;animation:bpNib 1150ms cubic-bezier(0.32,0.72,0.3,1) 1400ms forwards"></span>
+</span>
+<span style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(28px,3.4vw,52px);line-height:1.15;color:var(--text-strong);opacity:0;animation:bpWordUp 680ms cubic-bezier(0.22,0.61,0.36,1) 2150ms forwards">das verbindet.</span>
+</div>
+<span style="position:absolute;top:0;bottom:0;left:0;width:36%;background:linear-gradient(90deg, rgba(185,138,76,0) 0%, rgba(185,138,76,0.28) 50%, rgba(185,138,76,0) 100%);opacity:0;animation:bpSweep 1100ms cubic-bezier(0.22,0.61,0.36,1) 2300ms forwards;pointer-events:none"></span>
+</div>
+</div>
+</sc-if>
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(253,247,241,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-hairline);display:flex;align-items:stretch;justify-content:space-between;gap:32px;padding:0 24px 0 40px;height:88px">
+<a href="Startseite.dc.html" style="display:flex;align-items:center;flex:0 0 auto">
+<img src="images/beauty-palast-albstadt.png" alt="Beauty Palast Albstadt" style="height:56px;width:auto;display:block">
+</a>
+<nav data-bp-nav="true" style="flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;gap:clamp(16px,2.2vw,36px);overflow:hidden">
+<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+<a href="{{ n.href }}" data-bp-nav-link="true" style="position:relative;font-family:var(--font-ui);font-weight:var(--fw-regular);font-size:var(--size-body);line-height:1;white-space:nowrap;color:{{ n.color }};text-decoration:none;padding:6px 0;border-bottom:1px solid {{ n.rule }}" style-hover="color:var(--c-espresso)">{{ n.label }}
+<sc-if value="{{ n.isActive }}" hint-placeholder-val="{{ false }}">
+<span style="position:absolute;left:50%;bottom:-11px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--c-espresso)"></span>
+</sc-if>
+</a>
+</sc-for>
+</nav>
+<a href="Startseite.dc.html#kontakt" data-bp-cta="true" aria-label="Termin anfragen" style="flex:0 0 auto;align-self:center;display:flex;align-items:center;gap:12px;height:48px;background:var(--c-espresso);color:var(--c-creme);text-decoration:none;font-family:var(--font-ui);font-weight:var(--fw-medium);font-size:var(--size-small);letter-spacing:0.12em;text-transform:uppercase;padding:0 24px;border-radius:var(--radius-button);white-space:nowrap" style-hover="background:var(--c-kakao)"><span data-bp-cta-label="true">Termin anfragen</span>
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Icon" name="arrow-right" size="16" color="var(--c-creme)" hint-size="16px,16px"></x-import>
+</a>
+</header>
+
+<section style="position:relative;background:var(--surface-warm);padding:48px var(--edge-desktop) 96px;overflow:hidden">
+<span style="position:absolute;top:24px;right:-90px;width:320px;height:320px;border-radius:50%;border:1px solid var(--c-gold);opacity:0.3;pointer-events:none"></span>
+<div style="position:relative;max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,5vw,80px);align-items:center" data-bp-hero-grid="true">
+
+<div data-bp-hero-in="true" style="display:flex;flex-direction:column;gap:28px;opacity:0;animation:bpHeroIn 780ms cubic-bezier(0.22,0.61,0.36,1) 3250ms forwards">
+<div style="display:inline-flex;align-items:center;gap:14px;align-self:flex-start;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:999px;padding:8px 20px 8px 10px">
+<img src="images/beauty-palast-albstadt.png" alt="" style="height:32px;width:auto;display:block">
+<span style="font-family:var(--font-ui);font-size:var(--size-small);color:var(--c-kakao)">Beratung online oder im Institut</span>
+</div>
+<h1 style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(40px,4.8vw,84px);line-height:1.04;color:var(--text-strong);margin:0">Was hilft bei <em style="font-family:'Parisienne',cursive;font-style:normal;font-size:1.28em;line-height:0.9;color:var(--c-gold-deep);display:inline-block;vertical-align:-0.08em">Haarausfall</em> und geschädigtem Haar?</h1>
+<p style="font-size:var(--size-lead);line-height:var(--lh-lead);color:var(--text-body);margin:0;max-width:40ch">Vielleicht stehst du morgens vor dem Spiegel und bemerkst, dass sich dein Haar verändert hat.</p>
+<a href="Startseite.dc.html#kontakt" style="display:inline-flex;align-self:flex-start;align-items:center;gap:12px;height:48px;padding:0 28px;border-radius:var(--radius-button);background:var(--c-espresso);color:var(--c-creme);font-family:var(--font-ui);font-weight:var(--fw-medium);font-size:var(--size-small);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap" style-hover="background:var(--c-kakao)">Termin anfragen
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Icon" name="arrow-right" size="16" color="var(--c-creme)" hint-size="16px,16px"></x-import>
+</a>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(4,1fr);gap:10px;aspect-ratio:3 / 4;max-height:620px;justify-self:center;width:100%">
+<span></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:50% 0%;background-color:var(--c-rose);animation-delay:190ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:100% 0%;background-color:var(--c-rose);animation-delay:260ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:0% 33.33333333333333%;background-color:var(--c-rose);animation-delay:330ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:50% 33.33333333333333%;background-color:var(--c-rose);animation-delay:400ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:100% 33.33333333333333%;background-color:var(--c-rose);animation-delay:470ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:0% 66.66666666666666%;background-color:var(--c-rose);animation-delay:540ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:50% 66.66666666666666%;background-color:var(--c-rose);animation-delay:610ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:100% 66.66666666666666%;background-color:var(--c-rose);animation-delay:680ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:0% 100%;background-color:var(--c-rose);animation-delay:750ms"></span>
+<span data-bp-tile="true" style="display:block;background-image:url(&quot;images/kopfhaut-und-haar-7.jpg&quot;);background-size:300% 400%;background-position:50% 100%;background-color:var(--c-rose);animation-delay:820ms"></span>
+<span></span>
+</div>
+</div>
+</section>
+
+<section data-bp-reveal="true" style="background:var(--c-espresso);padding:120px var(--edge-desktop)">
+<div style="max-width:var(--container-max);margin:0 auto;display:flex;flex-direction:column;gap:56px">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Ornament" width="110px" hint-size="110px,12px"></x-import>
+<div style="display:flex;flex-direction:column">
+<p style="margin:0;padding:28px 0;border-bottom:1px solid rgba(253,247,241,0.18);font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(26px,3vw,50px);line-height:1.14;color:rgba(253,247,241,0.62);max-width:31ch">Es fühlt sich dünner an, bricht schneller oder verliert an Kraft.</p>
+<p style="margin:0;padding:28px 0;border-bottom:1px solid rgba(253,247,241,0.18);font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(26px,3vw,50px);line-height:1.14;color:var(--c-creme);max-width:34ch">Vielleicht findest du mehr Haare als früher in der Bürste oder beim Waschen.</p>
+<p style="margin:0;padding:28px 0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(26px,3vw,50px);line-height:1.14;color:rgba(253,247,241,0.62);max-width:37ch">Manchmal beginnt es ganz unauffällig: ein paar Haare mehr, eine Stelle, die plötzlich dünner wirkt, eine Kopfhaut, die empfindlicher reagiert als früher.</p>
+</div>
+<p style="margin:0;font-family:'Parisienne',cursive;font-size:clamp(40px,5vw,86px);line-height:1;color:var(--c-gold);align-self:flex-end;text-align:right;max-width:26ch">Irgendwann ist da dieser Gedanke: Was kann ich noch tun?</p>
+</div>
+</section>
+
+<section data-bp-reveal="true" style="padding:120px var(--edge-desktop)">
+<div style="max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:72px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:20px;position:sticky;top:128px">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Eyebrow" hint-size="auto,16px">Meine Geschichte</x-import>
+<p style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-h2);line-height:var(--lh-h2);color:var(--text-strong);margin:0">Genau diesen Punkt kenne ich <em style="font-family:'Parisienne',cursive;font-style:normal;font-size:1.3em;line-height:0.9;color:var(--c-gold-deep);display:inline-block;vertical-align:-0.08em">selbst</em> sehr gut.</p>
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Ornament" width="120px" hint-size="120px,12px"></x-import>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;max-width:var(--measure-max);font-size:var(--size-body);line-height:var(--lh-body);color:var(--text-body)">
+<p style="margin:0;font-size:var(--size-lead);line-height:var(--lh-lead);color:var(--text-strong)">Meine eigenen Haare waren nach vielen Jahren mit Extensions stark geschädigt. Die Längen waren trocken und strohig, die Haare brachen und meine Kopfhaut war gereizt.</p>
+<p style="margin:0">Natürlich habe ich versucht, etwas dagegen zu tun. Ich habe Produkte gewechselt, Neues ausprobiert und immer wieder gehofft, endlich etwas zu finden, das wirklich zu meinem Haar passt.</p>
+<p style="margin:12px 0;padding-left:28px;border-left:2px solid var(--c-gold);font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-h3);line-height:var(--lh-h3);color:var(--text-strong)">Diese Hoffnung kennst du vielleicht auch. Man probiert etwas Neues und denkt: Vielleicht ist es diesmal das Richtige.</p>
+<p style="margin:0">Als ich MONAT kennengelernt habe, war ich deshalb zuerst skeptisch. Ich wollte nicht einfach glauben, was mir versprochen wurde. Ich wollte selbst sehen und spüren, was passiert. Also habe ich die Produkte ausprobiert, nicht weil ich unbedingt überzeugt sein wollte, sondern weil ich wissen wollte, ob sie für mein Haar einen Unterschied machen.</p>
+<p style="margin:0">Die Veränderung kam nicht über Nacht. Mit der Zeit fühlte sich mein Haar jedoch anders an. Es wirkte gepflegter, kräftiger und lebendiger. Besonders berührt hat mich ein Moment bei meiner Friseurin. Ich hatte ihr nichts davon erzählt, dass ich meine Haarpflege verändert hatte. Sie schaute meine Haare an und fragte mich plötzlich:</p>
+<p style="margin:20px 0;font-family:'Parisienne',cursive;font-size:clamp(46px,5.4vw,92px);line-height:1;color:var(--c-gold-deep);text-align:center">„Was machst du anders?“</p>
+<p style="margin:0">Für mich war das ein ganz besonderer Augenblick, denn plötzlich hatte jemand die Veränderung gesehen, ohne dass ich etwas dazu sagen musste.</p>
+</div>
+</div>
+</section>
+
+<section style="position:relative;background:var(--surface-alt);padding:24px var(--edge-desktop) 0" data-bp-band="true">
+<div data-bp-sticky="true" style="position:sticky;top:26vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center;z-index:1;pointer-events:none">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Eyebrow" hint-size="auto,16px">Vielleicht kennst du das</x-import>
+<p style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(34px,4.2vw,72px);line-height:1.06;color:var(--text-strong);margin:0;max-width:22ch">Vielleicht erkennst du dich in meiner Geschichte ein Stück weit <em style="font-family:'Parisienne',cursive;font-style:normal;font-size:1.3em;line-height:0.9;color:var(--c-gold-deep);display:inline-block;vertical-align:-0.08em">wieder.</em></p>
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Ornament" width="120px" hint-size="120px,12px"></x-import>
+</div>
+<div data-bp-scroll-cards="true" style="position:relative;z-index:2;max-width:var(--container-max);margin:-34vh auto 0;padding:76vh 0 0;display:grid;grid-template-columns:minmax(0,1fr) clamp(80px,16vw,280px) minmax(0,1fr);gap:56px;align-items:start;pointer-events:none">
+<div data-bp-reveal="true" style="grid-column:1;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:var(--radius-base);overflow:hidden;margin-top:0px;box-shadow:0 18px 48px rgba(58,26,11,0.1)">
+<img src="images/kopfhaut-und-haar-5.jpg" alt="" style="width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block">
+<p style="margin:0;background:var(--c-rose);padding:24px;font-family:var(--font-display);font-weight:var(--fw-light);font-size:21px;line-height:1.4;color:var(--text-strong)">Vielleicht bricht dein Haar immer wieder ab.</p>
+</div>
+<div data-bp-reveal="true" style="grid-column:3;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:var(--radius-base);overflow:hidden;margin-top:150px;box-shadow:0 18px 48px rgba(58,26,11,0.1)">
+<img src="images/kopfhaut-und-haar-1.jpg" alt="" style="width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block">
+<p style="margin:0;background:var(--c-rose);padding:24px;font-family:var(--font-display);font-weight:var(--fw-light);font-size:21px;line-height:1.4;color:var(--text-strong)">Vielleicht hast du das Gefühl, dass es weniger wird.</p>
+</div>
+<div data-bp-reveal="true" style="grid-column:1;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:var(--radius-base);overflow:hidden;margin-top:110px;box-shadow:0 18px 48px rgba(58,26,11,0.1)">
+<img src="images/kopfhaut-und-haar-2.jpg" alt="" style="width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block">
+<p style="margin:0;background:var(--c-rose);padding:24px;font-family:var(--font-display);font-weight:var(--fw-light);font-size:21px;line-height:1.4;color:var(--text-strong)">Vielleicht bemerkst du dünnere Stellen oder versuchst bereits, bestimmte Bereiche mit deiner Frisur zu verdecken.</p>
+</div>
+<div data-bp-reveal="true" style="grid-column:3;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:var(--radius-base);overflow:hidden;margin-top:110px;box-shadow:0 18px 48px rgba(58,26,11,0.1)">
+<img src="images/kopfhaut-und-haar-4.jpg" alt="" style="width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block">
+<p style="margin:0;background:var(--c-rose);padding:24px;font-family:var(--font-display);font-weight:var(--fw-light);font-size:21px;line-height:1.4;color:var(--text-strong)">Vielleicht ist deine Kopfhaut empfindlich, trocken oder gereizt.</p>
+</div>
+<div data-bp-reveal="true" style="grid-column:1;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:var(--radius-base);overflow:hidden;margin-top:110px;box-shadow:0 18px 48px rgba(58,26,11,0.1)">
+<img src="images/kopfhaut-und-haar-3.jpg" alt="" style="width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block">
+<p style="margin:0;background:var(--c-rose);padding:24px;font-family:var(--font-display);font-weight:var(--fw-light);font-size:21px;line-height:1.4;color:var(--text-strong)">Vielleicht haben Extensions, Färben, Blondieren oder Hitze deinem Haar zugesetzt.</p>
+</div>
+<div data-bp-reveal="true" style="grid-column:3;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--line-hairline);border-radius:var(--radius-base);overflow:hidden;margin-top:110px;box-shadow:0 18px 48px rgba(58,26,11,0.1)">
+<img src="images/kopfhaut-und-haar-6.jpg" alt="" style="width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block">
+<p style="margin:0;background:var(--c-rose);padding:24px;font-family:var(--font-display);font-weight:var(--fw-light);font-size:21px;line-height:1.4;color:var(--text-strong)">Oder du stehst einfach vor so vielen Produkten und weißt nicht mehr, was davon eigentlich zu dir und deinem Haar passt.</p>
+</div>
+</div>
+<div data-bp-tail="true" style="height:30vh"></div>
+</section>
+
+<section data-bp-reveal="true" style="padding:120px var(--edge-desktop)">
+<div style="max-width:var(--measure-max);margin:0 auto;display:flex;flex-direction:column;gap:20px;font-size:var(--size-body);line-height:var(--lh-body);color:var(--text-body)">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Eyebrow" hint-size="auto,16px">So arbeite ich</x-import>
+<p style="margin:0;font-size:var(--size-lead);line-height:var(--lh-lead);color:var(--text-strong)">Genau hier möchte ich dich unterstützen. Ich glaube nicht daran, dass es die eine Lösung gibt, die für jeden Menschen passt. Dafür sind unsere Haare, unsere Kopfhaut und auch unser Alltag viel zu unterschiedlich. Deshalb bekommst du bei mir keine fertige Liste und kein starres Pflegeprogramm. Wir schauen gemeinsam hin: Wie fühlt sich dein Haar an? Was hat sich verändert? Was benutzt du derzeit? Was hat deinem Haar vielleicht nicht gutgetan? Was wünschst du dir?</p>
+<p style="margin:12px 0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-h2);line-height:var(--lh-h2);color:var(--text-strong);text-align:center">Manchmal braucht es nämlich gar nicht mehr Produkte. Manchmal braucht es einfach <em style="font-family:'Parisienne',cursive;font-style:normal;font-size:1.28em;line-height:0.9;color:var(--c-gold-deep);display:inline-block;vertical-align:-0.08em">die passenden.</em></p>
+<p style="margin:0">Mir ist wichtig, ehrlich mit dir zu sein. Ich verspreche dir keine Wunder und ich kann dir auch nicht sagen, dass ein Produkt bei jedem Menschen dasselbe bewirkt. Was ich dir geben kann, sind meine persönliche Erfahrung, meine Beobachtungen und das Wissen, das ich durch die Begleitung meiner Kundinnen und Kunden gesammelt habe. Ich durfte Menschen erleben, bei denen sich ihr Haargefühl und ihre Pflegeroutine im Laufe der Zeit sehr positiv verändert haben. Manche Entwicklungen haben auch mich überrascht. Trotzdem bleibt jeder Mensch einzigartig. Genau deshalb beginnt für mich alles mit Zuhören.</p>
+<p style="margin:0">Du kannst dich online von mir beraten lassen oder persönlich bei mir im Zollernalbkreis. Dabei musst du dich auf nichts vorbereiten und du musst auch noch nicht wissen, welches Produkt du möchtest. Erzähl mir einfach, was dich beschäftigt. Vielleicht ist es Haarbruch, zunehmender Haarausfall, eine empfindliche Kopfhaut oder einfach der Wunsch, dein Haar wieder kräftiger und gepflegter zu erleben. Wir schauen gemeinsam, welche Pflege zu dir und deiner aktuellen Situation passen könnte – ganz ohne Druck.</p>
+<p style="margin:0">Denn ich möchte nicht, dass du am Ende einfach nur ein Produkt gekauft hast. Ich möchte, dass du verstehst, warum du etwas verwendest und ob es zu deinem Haar passt. Vielleicht ist MONAT für dich die richtige Wahl. Vielleicht zeigt unser Gespräch aber auch, dass etwas anderes wichtiger ist. Beides ist in Ordnung.</p>
+<p style="margin:0">Wenn du möchtest, schreib mir einfach. Du brauchst keine langen Erklärungen und musst auch keine Fachbegriffe kennen. Ein paar persönliche Worte reichen vollkommen. Ich lese deine Nachricht selbst und antworte dir auch persönlich. Kein Callcenter, keine automatische Standardantwort – einfach ein ehrliches Gespräch von Mensch zu Mensch.</p>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;padding-top:28px;border-top:1px solid var(--line-hairline)">
+<p style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-h3);line-height:var(--lh-h3);color:var(--text-strong)">Manchmal beginnt Veränderung nicht mit einem neuen Produkt. Manchmal beginnt sie damit, dass endlich jemand zuhört und gemeinsam mit dir hinschaut.</p>
+<p style="margin:0">Ich freue mich, von dir zu hören.</p>
+<p style="margin:0">Herzlichst</p>
+<p style="font-family:var(--font-display);font-size:var(--size-h3);color:var(--text-strong);margin:0">Manuela</p>
+</div>
+</div>
+</section>
+
+<section data-bp-reveal="true" style="background:var(--surface-alt);padding:96px var(--edge-desktop)">
+<div style="max-width:var(--container-max);margin:0 auto">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.NoticeBox" tone="medical" title="Wichtiger Hinweis" hint-size="100%,220px">Meine Empfehlungen beruhen auf meinen persönlichen Erfahrungen mit kosmetischen Pflegeprodukten sowie auf den Rückmeldungen meiner Kundinnen und Kunden. Es werden keine Heilversprechen oder Garantien abgegeben. Ergebnisse können individuell unterschiedlich sein. Bei plötzlich auftretendem, starkem, kreisförmigem oder länger anhaltendem Haarausfall sowie bei entzündlichen oder auffälligen Veränderungen der Kopfhaut empfehle ich eine ärztliche beziehungsweise dermatologische Abklärung. Kosmetische Pflege ersetzt keine medizinische Diagnose oder Behandlung.</x-import>
+</div>
+</section>
+
+<section data-bp-reveal="true" style="background:var(--c-espresso);padding:120px var(--edge-desktop)">
+<div style="max-width:var(--container-max);margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Ornament" width="120px" hint-size="120px,12px"></x-import>
+<p style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(36px,4.4vw,72px);line-height:1.06;color:var(--c-creme);margin:0;max-width:20ch">Erzähl mir einfach, was dich beschäftigt.</p>
+<p style="font-size:var(--size-lead);line-height:var(--lh-lead);color:rgba(253,247,241,0.82);margin:0;max-width:48ch">Du musst dich auf nichts vorbereiten und noch nicht wissen, welches Produkt du möchtest.</p>
+<a href="Startseite.dc.html#kontakt" style="display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 28px;border-radius:var(--radius-button);background:var(--c-creme);color:var(--c-espresso);font-family:var(--font-ui);font-weight:var(--fw-medium);font-size:var(--size-small);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap" style-hover="background:var(--c-rose)">Termin anfragen
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Icon" name="arrow-right" size="16" color="var(--c-espresso)" hint-size="16px,16px"></x-import>
+</a>
+</div>
+</section>
+
+<footer style="background:var(--c-espresso);padding:96px var(--edge-desktop) 40px">
+<div style="max-width:var(--container-max);margin:0 auto;display:flex;flex-direction:column;gap:64px">
+
+<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 1px minmax(0,1.3fr);gap:48px">
+<div style="display:flex;flex-direction:column;gap:18px">
+<span style="font-family:var(--font-display);font-style:italic;font-weight:var(--fw-light);font-size:var(--size-h3);line-height:1;color:var(--c-creme)">Behandlungen</span>
+<div style="display:flex;flex-direction:column;gap:8px">
+<a href="Startseite.dc.html#behandlungen" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Gesicht und Haut</a>
+<a href="Kopfhaut-und-Haar.dc.html" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Kopfhaut und Haar</a>
+<a href="Waxing.dc.html" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Waxing</a>
+<a href="Startseite.dc.html#behandlungen" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Onkokosmetische Begleitung</a>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:18px">
+<span style="font-family:var(--font-display);font-style:italic;font-weight:var(--fw-light);font-size:var(--size-h3);line-height:1;color:var(--c-creme)">Institut</span>
+<div style="display:flex;flex-direction:column;gap:8px">
+<a href="Startseite.dc.html#willkommen" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Über mich</a>
+<a href="Startseite.dc.html#behandlungen" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Preise</a>
+<a href="Kundeninformation.dc.html" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Kundeninformation</a>
+<a href="Startseite.dc.html#kontakt" style="font-family:var(--font-ui);font-size:var(--size-body);line-height:1.6;color:rgba(253,247,241,0.78);text-decoration:none" style-hover="color:var(--c-creme)">Termin anfragen</a>
+</div>
+</div>
+
+<span style="background:rgba(253,247,241,0.16)"></span>
+
+<div style="display:flex;flex-direction:column;gap:20px;max-width:440px">
+<span style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-h2);line-height:1;color:var(--c-creme)">Schreib mir</span>
+<p style="font-family:var(--font-ui);font-size:var(--size-body);line-height:var(--lh-body);color:rgba(253,247,241,0.78);margin:0">Du brauchst keine langen Erklärungen und musst keine Fachbegriffe kennen. Ein paar persönliche Worte reichen vollkommen.</p>
+<div style="display:flex;flex-direction:column;gap:2px;font-family:var(--font-ui);font-size:var(--size-body);color:var(--c-creme)">
+<span>Josefstr. 3, 72461 Albstadt</span>
+<span>Termine nach Vereinbarung</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:4px">
+<a href="Startseite.dc.html#kontakt" style="display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 24px;border-radius:var(--radius-button);background:var(--c-creme);color:var(--c-espresso);font-family:var(--font-ui);font-weight:var(--fw-medium);font-size:var(--size-small);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap" style-hover="background:var(--c-rose)">Termin anfragen
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Icon" name="arrow-right" size="16" color="var(--c-espresso)" hint-size="16px,16px"></x-import>
+</a>
+<a href="Startseite.dc.html#kontakt" style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid rgba(253,247,241,0.3);border-radius:var(--radius-button);text-decoration:none" style-hover="border-color:var(--c-gold)" aria-label="WhatsApp">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Icon" name="message-circle" size="20" color="var(--c-creme)" hint-size="20px,20px"></x-import>
+</a>
+<a href="Startseite.dc.html#kontakt" style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid rgba(253,247,241,0.3);border-radius:var(--radius-button);text-decoration:none" style-hover="border-color:var(--c-gold)" aria-label="Instagram">
+<x-import component-from-global-scope="BeautyPalastAlbstadtDesignSystem_3ff570.Icon" name="at-sign" size="20" color="var(--c-creme)" hint-size="20px,20px"></x-import>
+</a>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;align-items:center;gap:32px;padding-top:56px;border-top:1px solid rgba(253,247,241,0.16)">
+<img src="images/beauty-palast-albstadt.png" alt="Beauty Palast Albstadt" style="height:112px;width:auto;display:block">
+<span style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(44px,7vw,120px);line-height:1;letter-spacing:0.01em;color:var(--c-creme);text-align:center">Beauty Palast</span>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+<span style="font-family:var(--font-ui);font-size:var(--size-small);color:rgba(253,247,241,0.6)">2017–2026 © Beauty Palast Albstadt</span>
+<div style="display:flex;flex-wrap:wrap;gap:32px">
+<a href="#impressum" style="font-family:var(--font-ui);font-size:var(--size-small);color:rgba(253,247,241,0.6);text-decoration:none" style-hover="color:var(--c-creme)">Impressum</a>
+<a href="#datenschutz" style="font-family:var(--font-ui);font-size:var(--size-small);color:rgba(253,247,241,0.6);text-decoration:none" style-hover="color:var(--c-creme)">Datenschutz</a>
+<a href="Kundeninformation.dc.html" style="font-family:var(--font-ui);font-size:var(--size-small);color:rgba(253,247,241,0.6);text-decoration:none" style-hover="color:var(--c-creme)">Kundeninformation</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  state = { introDone: false };
+
+  componentDidMount() {
+    const root = document.documentElement;
+    const returning = sessionStorage.getItem('bp-visited') === '1';
+    sessionStorage.setItem('bp-visited', '1');
+    if (returning) {
+      this.setState({ introDone: true });
+      root.classList.add('bp-arrive');
+      this.arriveTimer = setTimeout(() => root.classList.remove('bp-arrive'), 1100);
+    } else {
+      this.introTimer = setTimeout(() => this.setState({ introDone: true }), 4000);
+    }
+    this.onClick = e => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank') return;
+      const href = a.getAttribute('href');
+      if (!href || !href.includes('.dc.html')) return;
+      if (href.split('#')[0] === location.pathname.split('/').pop()) return;
+      e.preventDefault();
+      root.classList.add('bp-leaving');
+      setTimeout(() => {
+        if (window.parent && window.parent !== window) window.parent.postMessage({ bpGo: href }, '*');
+        else location.href = href;
+      }, 500);
+    };
+    document.addEventListener('click', this.onClick, true);
+    window.addEventListener('scroll', this.sweep, { passive: true });
+    window.addEventListener('resize', this.sweep, { passive: true });
+    this.io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bp-in'); this.io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    this.arm();
+  }
+  componentDidUpdate() { this.arm(); }
+  seen = new WeakSet();
+  sweep = () => {
+    const h = window.innerHeight;
+    document.querySelectorAll('[data-bp-reveal]').forEach(el => {
+      if (el.classList.contains('bp-in')) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < h * 0.92 && r.bottom > 0) el.classList.add('bp-in');
+    });
+  };
+  arm = () => {
+    cancelAnimationFrame(this.raf);
+    this.raf = requestAnimationFrame(() => {
+      const nodes = document.querySelectorAll('[data-bp-reveal]');
+      if (!nodes.length) { this.raf = requestAnimationFrame(this.arm); return; }
+      document.documentElement.classList.add('bp-js');
+      nodes.forEach((el, i) => {
+        if (this.seen.has(el)) return;
+        this.seen.add(el);
+        el.style.animationDelay = (i % 2) * 90 + 'ms';
+        if (this.io) this.io.observe(el);
+      });
+      this.sweep();
+      clearTimeout(this.safety);
+      this.safety = setTimeout(() => {
+        document.querySelectorAll('[data-bp-reveal]').forEach(el => el.classList.add('bp-in'));
+      }, 2500);
+    });
+  };
+
+  componentWillUnmount() {
+    clearTimeout(this.introTimer); clearTimeout(this.arriveTimer); cancelAnimationFrame(this.raf);
+    document.removeEventListener('click', this.onClick, true);
+    window.removeEventListener('scroll', this.sweep);
+    window.removeEventListener('resize', this.sweep);
+    clearTimeout(this.safety);
+    if (this.io) this.io.disconnect();
+  }
+  renderVals() {
+    const active = 'Kopfhaut und Haar';
+    return {
+      introVisible: !this.state.introDone,
+      navItems: [
+        { label: 'Startseite', href: 'Startseite.dc.html' },
+        { label: 'Kopfhaut und Haar', href: 'Kopfhaut-und-Haar.dc.html' },
+        { label: 'Waxing', href: 'Waxing.dc.html' },
+        { label: 'Kundeninformation', href: 'Kundeninformation.dc.html' }
+      ].map(n => ({
+        ...n,
+        isActive: n.label === active,
+        color: n.label === active ? 'var(--c-espresso)' : 'var(--c-kakao)',
+        rule: n.label === active ? 'var(--c-gold)' : 'transparent'
+      }))
+    };
+  }
+}
+</script></body></html>
