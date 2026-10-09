@@ -1,0 +1,460 @@
+{
+  "stand": "2026-10",
+  "kategorien": [
+    {
+      "id": "gesichtsreinigung",
+      "titel": "Gesichtsreinigung & Hautanalyse",
+      "kurz": "Gesichtsreinigung",
+      "zusatz": "Damen und Herren",
+      "plakat": "preisliste-gesichtsreinigung-hautanalyse",
+      "gruppen": [
+        {
+          "titel": "Klassische Gesichtsreinigung",
+          "zeilen": [
+            [
+              "Klassische Gesichtsreinigung",
+              "109,00 €",
+              "40 Min."
+            ],
+            [
+              "Klassische Gesichtsreinigung mit Dekolleté",
+              "169,00 €",
+              "50 Min."
+            ]
+          ]
+        },
+        {
+          "titel": "Aquafacial Gesichtsreinigung",
+          "zeilen": [
+            [
+              "Aquafacial Gesichtsreinigung ohne Dekolleté",
+              "159,00 €",
+              "45 Min."
+            ],
+            [
+              "Aquafacial Gesichtsreinigung mit Dekolleté",
+              "209,00 €",
+              "60 Min."
+            ]
+          ]
+        },
+        {
+          "titel": "Microdermabrasion & Needling",
+          "zeilen": [
+            [
+              "Microdermabrasion Gesichtsbehandlung Gesicht komplett",
+              "159,00 €",
+              "60 Min."
+            ],
+            [
+              "Needling Gesichtsbehandlung ohne Dekolleté",
+              "159,00 €",
+              "45 Min."
+            ],
+            [
+              "Needling Gesichtsbehandlung mit Dekolleté",
+              "209,00 €",
+              "60 Min."
+            ]
+          ]
+        },
+        {
+          "titel": "Wellnessbehandlungen",
+          "zeilen": [
+            [
+              "Wellnessbehandlung Klein",
+              "159,00 €",
+              "45 Min."
+            ],
+            [
+              "Wellnessbehandlung Groß",
+              "199,00 €",
+              "70 Min."
+            ]
+          ]
+        },
+        {
+          "titel": "Hautanalyse & Zusatzleistungen",
+          "zeilen": [
+            [
+              "Hautanalyse (ohne Behandlung)",
+              "50,00 €",
+              "30 Min."
+            ],
+            [
+              "Milien & Co. Entfernung",
+              "ab 10,00 €",
+              "10 Min."
+            ],
+            [
+              "Gesichtsmassage",
+              "ab 2,50 €",
+              "5 Min."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anti-aging",
+      "titel": "Anti Aging Gesichtsreinigung",
+      "kurz": "Anti Aging",
+      "zusatz": "Damen und Herren",
+      "plakat": "preisliste-anti-aging",
+      "gruppen": [
+        {
+          "titel": null,
+          "zeilen": [
+            [
+              "Anti-Aging-Behandlung ohne Dekolleté",
+              "185,00 €",
+              "75 Min."
+            ],
+            [
+              "Anti-Aging-Behandlung mit Dekolleté",
+              "229,00 €",
+              "75 Min."
+            ],
+            [
+              "Akne-Gesichtsbehandlung mit Microdermabrasion",
+              "159,00 €",
+              "60 Min."
+            ],
+            [
+              "Akne-Gesichtsbehandlung mit Dekolleté",
+              "209,00 €",
+              "60 Min."
+            ],
+            [
+              "Aquafacial Anti-Aging-Gesichtsreinigung Vitaminbehandlung ohne Dekolleté",
+              "189,00 €",
+              "75 Min."
+            ],
+            [
+              "Aquafacial Anti-Aging-Gesichtsreinigung mit Dekolleté",
+              "239,00 €",
+              "75 Min."
+            ],
+            [
+              "Gesichtsbehandlung Paket, individuelle Zusammenstellung Gesicht komplett",
+              "ab 189,00 €",
+              "60 Min."
+            ],
+            [
+              "Gesichtsbehandlung Paket, individuelle Zusammenstellung mit Dekolleté",
+              "ab 249,00 €",
+              "90 Min."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deluxe",
+      "titel": "Gesichtsreinigung De’Luxe",
+      "kurz": "De’Luxe",
+      "zusatz": "Damen und Herren",
+      "plakat": "preisliste-gesichtsreinigung-deluxe",
+      "gruppen": [
+        {
+          "titel": null,
+          "zeilen": [
+            [
+              "Samt Straffungs Ritual mit Dekolleté",
+              "320,00 €",
+              "90 Min."
+            ],
+            [
+              "Lifting Premium",
+              "429,00 €",
+              "90 Min."
+            ],
+            [
+              "Zell Lifting Premium",
+              "499,00 €",
+              "120 Min."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "koerperreinigung",
+      "titel": "Körperreinigung",
+      "kurz": "Körperreinigung",
+      "zusatz": "Damen und Herren",
+      "plakat": "preisliste-koerperreinigung",
+      "gruppen": [
+        {
+          "titel": null,
+          "zeilen": [
+            [
+              "Klassische Körperbehandlung Rücken",
+              "264,00 €",
+              "60 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Bauch",
+              "264,00 €",
+              "60 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Arme",
+              "233,00 €",
+              "60 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Achseln",
+              "154,00 €",
+              "45 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Intim",
+              "165,00 €",
+              "60 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Intim inkl. Bikinizone",
+              "174,00 €",
+              "60 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Po",
+              "169,00 €",
+              "60 Min."
+            ],
+            [
+              "Klassische Körperbehandlung Beine",
+              "373,00 €",
+              "90 Min."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waxing-damen",
+      "titel": "Waxing Damen",
+      "kurz": "Waxing Damen",
+      "zusatz": "Damen",
+      "plakat": "preisliste-waxing-damen",
+      "gruppen": [
+        {
+          "titel": null,
+          "zeilen": [
+            [
+              "Wangen",
+              "26,50 €",
+              "30 Min."
+            ],
+            [
+              "Oberlippe",
+              "16,50 €",
+              "30 Min."
+            ],
+            [
+              "Kinn",
+              "14,50 €",
+              "30 Min."
+            ],
+            [
+              "Hals",
+              "24,00 €",
+              "30 Min."
+            ],
+            [
+              "Nacken",
+              "24,00 €",
+              "30 Min."
+            ],
+            [
+              "Achseln",
+              "22,00 €",
+              "30 Min."
+            ],
+            [
+              "Brust",
+              "30,00 €",
+              "30 Min."
+            ],
+            [
+              "Arme",
+              "35,00 €",
+              "30 Min."
+            ],
+            [
+              "Bauch",
+              "21,00 €",
+              "30 Min."
+            ],
+            [
+              "Oberschenkel",
+              "92,00 €",
+              "60 Min."
+            ],
+            [
+              "Unterschenkel / Waden",
+              "69,00 €",
+              "60 Min."
+            ],
+            [
+              "Beine komplett",
+              "139,00 €",
+              "90 Min."
+            ],
+            [
+              "Po",
+              "50,00 €",
+              "30 Min."
+            ],
+            [
+              "Pofalte",
+              "25,00 €",
+              "15 Min."
+            ],
+            [
+              "Intimbereich (ohne Bikinizone)",
+              "53,00 €",
+              "30 Min."
+            ],
+            [
+              "Bikinizone",
+              "25,00 €",
+              "30 Min."
+            ]
+          ]
+        }
+      ],
+      "anzeige": "Waxing"
+    },
+    {
+      "id": "waxing-herren",
+      "titel": "Waxing Herren",
+      "kurz": "Waxing Herren",
+      "zusatz": "Herren",
+      "plakat": "preisliste-waxing-herren",
+      "gruppen": [
+        {
+          "titel": null,
+          "zeilen": [
+            [
+              "Wangen",
+              "16,50 €",
+              "30 Min."
+            ],
+            [
+              "Kinn",
+              "19,50 €",
+              "30 Min."
+            ],
+            [
+              "Hals",
+              "35,00 €",
+              "30 Min."
+            ],
+            [
+              "Nacken",
+              "32,00 €",
+              "30 Min."
+            ],
+            [
+              "Achseln",
+              "29,00 €",
+              "30 Min."
+            ],
+            [
+              "Brust",
+              "55,00 €",
+              "30 Min."
+            ],
+            [
+              "Arme",
+              "75,00 €",
+              "45 Min."
+            ],
+            [
+              "Bauch",
+              "75,00 €",
+              "30 Min."
+            ],
+            [
+              "Rücken komplett",
+              "92,00 €",
+              "60 Min."
+            ],
+            [
+              "Oberschenkel",
+              "120,00 €",
+              "45 Min."
+            ],
+            [
+              "Unterschenkel",
+              "99,00 €",
+              "45 Min."
+            ],
+            [
+              "Beine komplett",
+              "199,00 €",
+              "90 Min."
+            ],
+            [
+              "Po",
+              "80,00 €",
+              "30 Min."
+            ],
+            [
+              "Pofalte",
+              "29,00 €",
+              "20 Min."
+            ]
+          ]
+        }
+      ],
+      "anzeige": "Waxing"
+    },
+    {
+      "id": "online-beratung",
+      "titel": "Online-Beratung & Haut- und Haaranalyse",
+      "kurz": "Online-Beratung",
+      "zusatz": "Damen und Herren",
+      "plakat": "preisliste-online-beratung",
+      "gruppen": [
+        {
+          "titel": "Haarausfall oder Hautberatung",
+          "zeilen": [
+            [
+              "Online-Beratung",
+              "100,00 €",
+              "60 Min."
+            ]
+          ]
+        },
+        {
+          "titel": "Online-Termine",
+          "zeilen": [
+            [
+              "Online-Gesichtsausreinigung",
+              "75,00 €",
+              "60 Min."
+            ],
+            [
+              "Online-Beratung für klare Haut (kleine Beratung)",
+              "70,00 €",
+              "30 Min."
+            ]
+          ]
+        },
+        {
+          "titel": "Omega- und Supplement-Testung",
+          "zeilen": [
+            [
+              "Omega-Auswertung / Labor-Onlineauswertung via Zoom",
+              "100,00 €",
+              "45 Min."
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

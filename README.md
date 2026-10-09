@@ -5,6 +5,11 @@ Entpackt aus dem Claude-Design-Export `Beauty-Palast-Website-komplett.html`
 (Single-File-Bundle mit gzip/base64-eingebetteten Assets) in eine normale,
 versionierbare Dateistruktur.
 
+## Live-Stand
+
+Die ausgelieferte Website liegt in `live/` (siehe `live/LIESMICH.md`); die `*.dc.html`-Vorlagen
+hier sind der ältere Design-Export.
+
 ## Struktur
 
 ```
