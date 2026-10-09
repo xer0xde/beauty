@@ -130,7 +130,7 @@ def tabelle(kat, gruppe):
             f'<th scope="col" class="dauer">Dauer</th></tr></thead><tbody>{rows}</tbody></table>')
 
 
-def kategorie_inhalt(kat):
+def kategorie_inhalt(kat, plakat=False):
     teile = []
     nummeriert = sum(1 for g in kat["gruppen"] if g["titel"]) > 1
     for i, g in enumerate(kat["gruppen"], 1):
@@ -143,7 +143,20 @@ def kategorie_inhalt(kat):
             f'<h2 id="{kat["id"]}-titel">{esc(kat.get("anzeige", kat["titel"]))}'
             f'<span class="schrift"> {esc(kat["zusatz"])}</span></h2>'
             '<div class="preise-ornament" aria-hidden="true"><span></span><i></i><span></span></div></header>'
-            + "".join(teile))
+            + (plakat_mit_tabellen(kat, "".join(teile)) if plakat else "".join(teile)))
+
+
+def plakat_mit_tabellen(kat, tabellen):
+    """Plakat groß neben (Desktop) bzw. über (Handy) den Tabellen; Antippen öffnet das JPG."""
+    b = f'/images/preislisten/{kat["plakat"]}'
+    return ('<div class="preise-mit-plakat"><figure class="preise-plakat">'
+            f'<a href="{b}.jpg" class="preise-plakat-link" target="_blank" rel="noopener" '
+            f'aria-label="Plakat {esc(kat["titel"])} groß ansehen">'
+            f'<img src="{b}-w800.webp" srcset="{b}-w400.webp 400w, {b}-w800.webp 800w" '
+            'sizes="(max-width: 860px) calc(100vw - 48px), 420px" width="800" height="1132" '
+            f'loading="lazy" decoding="async" alt="Preisliste {esc(kat["titel"])} als Plakat"></a>'
+            '<figcaption>Zum Vergrößern antippen</figcaption></figure>'
+            f'<div class="preise-tabellen">{tabellen}</div></div>')
 
 
 def kategorie(kat):
@@ -157,7 +170,7 @@ def einzelpreise(ids):
     kats = [k for k in DATEN["kategorien"] if k["id"] in ids]
     bloecke = "".join(
         f'<div class="preise-einzel-kat" id="{k["id"]}" aria-labelledby="{k["id"]}-titel" role="region">'
-        + kategorie_inhalt(k) + "</div>" for k in kats)
+        + kategorie_inhalt(k, plakat=True) + "</div>" for k in kats)
     return ('<section class="preise-einzel" id="preise" aria-label="Preise"><div class="preise-wrap">'
             '<p class="preise-eyebrow">Preise · Stand Oktober 2026</p>' + bloecke +
             '<p class="preise-alle"><a class="preise-cta dunkel" href="/preise">Alle Preise</a></p></div></section>')
@@ -312,12 +325,38 @@ EINZELSEITEN = {
 
 def ohne_preisbloecke(s):
     s = re.sub(r'<section class="preise-teaser".*?</section>', "", s, flags=re.S)
+    s = re.sub(r"<(style|script) data-preise-plakat>.*?</\1>", "", s, flags=re.S)
     return re.sub(r'<section class="preise-einzel".*?</div></section>', "", s, flags=re.S)
+
+
+PLAKAT_CSS = """
+.preise-einzel .preise-wrap{max-width:var(--container-max)}
+.preise-mit-plakat{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:clamp(28px,4vw,56px);align-items:start}
+.preise-plakat{margin:0;position:sticky;top:112px}
+.preise-plakat a{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line-hairline);box-shadow:0 18px 40px rgba(58,26,11,.12);cursor:zoom-in;line-height:0}
+.preise-plakat img{display:block;width:100%;height:auto;transition:transform .3s}
+.preise-plakat a:hover img{transform:scale(1.02)}
+.preise-plakat figcaption{margin-top:10px;text-align:center;font-family:var(--font-ui);font-size:13px;color:var(--text-meta)}
+.preise-lightbox{border:0;padding:0;background:transparent;max-width:min(94vw,820px);max-height:94vh;overflow:visible}
+.preise-lightbox::backdrop{background:rgba(30,12,4,.82)}
+.preise-lightbox img{display:block;max-width:100%;max-height:90vh;width:auto;height:auto;border-radius:10px;margin:0 auto}
+.preise-lightbox button{position:absolute;top:-14px;right:-14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--c-creme);color:var(--c-espresso);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+@media(max-width:860px){.preise-mit-plakat{grid-template-columns:minmax(0,1fr)}.preise-plakat{position:static}.preise-lightbox button{top:8px;right:8px}}
+"""
+
+PLAKAT_JS = """(()=>{const d=document.createElement("dialog");d.className="preise-lightbox";d.setAttribute("aria-label","Preisplakat");d.innerHTML='<img alt=""><button type="button" aria-label="Schließen">×</button>';document.body.append(d);const i=d.querySelector("img");d.querySelector("button").addEventListener("click",()=>d.close());d.addEventListener("click",e=>{e.target===d&&d.close()});d.addEventListener("close",()=>{i.removeAttribute("src")});document.querySelectorAll(".preise-plakat-link").forEach(a=>a.addEventListener("click",e=>{if(!d.showModal)return;e.preventDefault();i.src=a.href;i.alt=a.querySelector("img").alt;d.showModal()}))})();"""
+
+
+def plakat_extras(s):
+    s = re.sub(r"<style data-preise-plakat>.*?</style>", "", s, flags=re.S)
+    s = re.sub(r"<script data-preise-plakat>.*?</script>", "", s, flags=re.S)
+    s = ersetze_einmal(s, "</head>", f"<style data-preise-plakat>{PLAKAT_CSS.strip()}</style></head>", "plakat")
+    return ersetze_einmal(s, "</body>", f"<script data-preise-plakat>{PLAKAT_JS}</script></body>", "plakat")
 
 
 def preisblock_einsetzen(s, name):
     ids, vor = EINZELSEITEN[name]
-    s = ohne_preisbloecke(s)
+    s = plakat_extras(ohne_preisbloecke(s))
     i = s.index(vor)
     j = s.rindex("<section", 0, i)
     return s[:j] + einzelpreise(ids) + s[j:]
