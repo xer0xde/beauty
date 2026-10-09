@@ -83,10 +83,13 @@ CSS = """
 .preise-plakate img{width:100%;height:auto;aspect-ratio:400/566;object-fit:cover;border-radius:10px;border:1px solid var(--line-hairline);box-shadow:0 10px 24px rgba(58,26,11,.08);transition:transform .2s}
 .preise-plakate a:hover img{transform:translateY(-3px)}
 .preise-plakate small{display:block;color:var(--text-meta);font-size:12px}
-.preise-teaser{padding:clamp(56px,6vw,88px) var(--edge-desktop);background:var(--surface-warm)}
-.preise-teaser>div{max-width:var(--container-max);margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
-.preise-teaser h2{font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(30px,3.4vw,44px);line-height:1.15;color:var(--c-espresso);margin:0 0 8px}
-.preise-teaser p{margin:0;max-width:52ch}
+.preise-einzel{padding:clamp(64px,7vw,104px) var(--edge-desktop);background:var(--surface-alt)}
+.preise-einzel .preise-eyebrow{color:var(--text-meta);text-align:center;margin-bottom:28px}
+.preise-einzel-kat{scroll-margin-top:96px}
+.preise-einzel-kat+.preise-einzel-kat{margin-top:clamp(48px,6vw,72px)}
+.preise-einzel .preise-tabelle tbody tr:nth-child(even) th,.preise-einzel .preise-tabelle tbody tr:nth-child(even) td{background:#fdf3ea}
+.preise-alle{text-align:center;margin-top:36px!important}
+.preise-alle .preise-cta{display:inline-flex}
 @media(max-width:640px){
 .preise-hero:after{display:none}
 .preise-tabelle th,.preise-tabelle td{padding:10px 10px}
@@ -127,7 +130,7 @@ def tabelle(kat, gruppe):
             f'<th scope="col" class="dauer">Dauer</th></tr></thead><tbody>{rows}</tbody></table>')
 
 
-def kategorie(kat):
+def kategorie_inhalt(kat):
     teile = []
     nummeriert = sum(1 for g in kat["gruppen"] if g["titel"]) > 1
     for i, g in enumerate(kat["gruppen"], 1):
@@ -136,13 +139,28 @@ def kategorie(kat):
             nr = f'<span class="nr">{i}.</span> ' if nummeriert else ""
             kopf = f"<h3>{nr}{esc(g['titel'])}</h3>"
         teile.append(f'<div class="preise-gruppe">{kopf}{tabelle(kat, g)}</div>')
-    return (f'<section class="preise-kategorie" id="{kat["id"]}" aria-labelledby="{kat["id"]}-titel">'
-            '<div class="preise-wrap"><header class="preise-kopf">'
+    return ('<header class="preise-kopf">'
             f'<h2 id="{kat["id"]}-titel">{esc(kat.get("anzeige", kat["titel"]))}'
             f'<span class="schrift"> {esc(kat["zusatz"])}</span></h2>'
             '<div class="preise-ornament" aria-hidden="true"><span></span><i></i><span></span></div></header>'
-            + "".join(teile) +
+            + "".join(teile))
+
+
+def kategorie(kat):
+    return (f'<section class="preise-kategorie" id="{kat["id"]}" aria-labelledby="{kat["id"]}-titel">'
+            '<div class="preise-wrap">' + kategorie_inhalt(kat) +
             '<p class="preise-hoch"><a href="#preisuebersicht">↑ Zur Übersicht</a></p></div></section>')
+
+
+def einzelpreise(ids):
+    """Preisblock für eine Behandlungsseite, aus denselben Daten wie /preise."""
+    kats = [k for k in DATEN["kategorien"] if k["id"] in ids]
+    bloecke = "".join(
+        f'<div class="preise-einzel-kat" id="{k["id"]}" aria-labelledby="{k["id"]}-titel" role="region">'
+        + kategorie_inhalt(k) + "</div>" for k in kats)
+    return ('<section class="preise-einzel" id="preise" aria-label="Preise"><div class="preise-wrap">'
+            '<p class="preise-eyebrow">Preise · Stand Oktober 2026</p>' + bloecke +
+            '<p class="preise-alle"><a class="preise-cta dunkel" href="/preise">Alle Preise</a></p></div></section>')
 
 
 def hauptinhalt():
@@ -285,16 +303,24 @@ def verlinke(s, wo, aktiv=False, css=False):
     return s
 
 
-def waxing_teaser(s):
-    if 'class="preise-teaser"' in s:
-        return s
-    i = s.index("Du hast noch Fragen?")
+EINZELSEITEN = {
+    # Seite: (Kategorien, Text, vor dessen Abschnitt der Preisblock steht)
+    "waxing.html": (["waxing-damen", "waxing-herren"], "Du hast noch Fragen?"),
+    "kopfhaut-und-haar.html": (["online-beratung"], "Erzähl mir einfach, was dich beschäftigt."),
+}
+
+
+def ohne_preisbloecke(s):
+    s = re.sub(r'<section class="preise-teaser".*?</section>', "", s, flags=re.S)
+    return re.sub(r'<section class="preise-einzel".*?</div></section>', "", s, flags=re.S)
+
+
+def preisblock_einsetzen(s, name):
+    ids, vor = EINZELSEITEN[name]
+    s = ohne_preisbloecke(s)
+    i = s.index(vor)
     j = s.rindex("<section", 0, i)
-    teaser = ('<section class="preise-teaser" aria-labelledby="preise-teaser-titel"><div><div>'
-              '<h2 id="preise-teaser-titel">Preise fürs Waxing</h2>'
-              '<p>Alle Bereiche mit Preis und Dauer findest du in der Preisliste – für Damen und für Herren.</p></div>'
-              '<a class="preise-cta dunkel" href="/preise#waxing-damen">Zur Preisliste</a></div></section>')
-    return s[:j] + teaser + s[j:]
+    return s[:j] + einzelpreise(ids) + s[j:]
 
 
 def main():
@@ -304,7 +330,7 @@ def main():
     # Neue Seite aus der Waxing-Vorlage (ohne frühere Preise-Einfügungen)
     p = re.sub(r'<a href="/preise" data-bp-nav-link="true".*?</a>', "", wax, flags=re.S)
     p = p.replace('<a href="/preise">Preise</a>', "")
-    p = re.sub(r'<section class="preise-teaser".*?</section>', "", p, flags=re.S)
+    p = ohne_preisbloecke(p)
     p = re.sub(r"<style data-preise>.*?</style>", "", p, flags=re.S)
     p = re.sub(r'<link rel="preload" href="images/waxing-4\.webp"[^>]*>', "", p, count=1)
     business = re.search(r'<script type="application/ld\+json">(.*?)</script>', p, re.S).group(1)
@@ -326,9 +352,9 @@ def main():
     for name in SEITEN + RECHT:
         f = LIVE / name
         s = f.read_text(encoding="utf-8")
-        s = verlinke(s, name, css=name == "waxing.html")
-        if name == "waxing.html":
-            s = waxing_teaser(s)
+        s = verlinke(s, name, css=name in EINZELSEITEN)
+        if name in EINZELSEITEN:
+            s = preisblock_einsetzen(s, name)
         f.write_text(s, encoding="utf-8")
 
     sm = LIVE / "sitemap.xml"

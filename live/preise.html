@@ -116,10 +116,13 @@
 .preise-plakate img{width:100%;height:auto;aspect-ratio:400/566;object-fit:cover;border-radius:10px;border:1px solid var(--line-hairline);box-shadow:0 10px 24px rgba(58,26,11,.08);transition:transform .2s}
 .preise-plakate a:hover img{transform:translateY(-3px)}
 .preise-plakate small{display:block;color:var(--text-meta);font-size:12px}
-.preise-teaser{padding:clamp(56px,6vw,88px) var(--edge-desktop);background:var(--surface-warm)}
-.preise-teaser>div{max-width:var(--container-max);margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
-.preise-teaser h2{font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(30px,3.4vw,44px);line-height:1.15;color:var(--c-espresso);margin:0 0 8px}
-.preise-teaser p{margin:0;max-width:52ch}
+.preise-einzel{padding:clamp(64px,7vw,104px) var(--edge-desktop);background:var(--surface-alt)}
+.preise-einzel .preise-eyebrow{color:var(--text-meta);text-align:center;margin-bottom:28px}
+.preise-einzel-kat{scroll-margin-top:96px}
+.preise-einzel-kat+.preise-einzel-kat{margin-top:clamp(48px,6vw,72px)}
+.preise-einzel .preise-tabelle tbody tr:nth-child(even) th,.preise-einzel .preise-tabelle tbody tr:nth-child(even) td{background:#fdf3ea}
+.preise-alle{text-align:center;margin-top:36px!important}
+.preise-alle .preise-cta{display:inline-flex}
 @media(max-width:640px){
 .preise-hero:after{display:none}
 .preise-tabelle th,.preise-tabelle td{padding:10px 10px}

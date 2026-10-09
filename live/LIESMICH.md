@@ -27,7 +27,8 @@ python3 tools/preise_bauen.py
 
 Das Skript erzeugt die Preisseite aus `waxing.html` (Kopf, Anfahrt, Fußzeile), trägt
 „Preise“ in Kopfzeile, Mobilmenü und Fußzeile aller Seiten ein, ergänzt `sitemap.xml`
-und setzt auf der Waxing-Seite einen Hinweis auf die Preisliste. Mehrfaches Ausführen
+und setzt auf Waxing (Damen/Herren) und Kopfhaut und Haar (Online-Beratung) einen
+Preisblock aus denselben Daten mit Link „Alle Preise“ (Zuordnung: `EINZELSEITEN`). Mehrfaches Ausführen
 ist unschädlich. Preise nur in der JSON-Datei ändern, dann neu bauen.
 
 Plakate als Bild: `images/preislisten/` (JPG zum Öffnen, WebP-Vorschau).
