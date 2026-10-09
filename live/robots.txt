@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://beauty-palast-albstadt.de/sitemap.xml
